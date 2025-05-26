@@ -42,7 +42,7 @@ public class CursoService {
     public Curso modificarCurso(CursoModificar solicitud){
         Curso nombre = obtenerPorId(solicitud.getId());
         if(solicitud.getNombre()!=null){
-            nombre.setNombre(nombre.getNombre());
+            nombre.setNombre(solicitud.getNombre());
         }
         return cursoRepository.save(nombre);
     }

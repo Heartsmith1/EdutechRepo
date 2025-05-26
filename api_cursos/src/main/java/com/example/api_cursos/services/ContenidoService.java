@@ -54,14 +54,14 @@ public class ContenidoService {
 
     public Contenido modificarCont(ContenidoModificar solicitud){
         Contenido contenido = obtenerPorId(solicitud.getId());
-        if(solicitud.getTitulo()!=null){
-            contenido.setTitulo(contenido.getTitulo());
+        if(solicitud.getTitulo() !=null){
+            contenido.setTitulo(solicitud.getTitulo());
         }
-        if(solicitud.getDescripcion()!=null){
-            contenido.setDescripcion(contenido.getDescripcion());
+        if(solicitud.getDescripcion() !=null){
+            contenido.setDescripcion(solicitud.getDescripcion());
         }
-        if(solicitud.getUrlVideo()!=null){
-            contenido.setUrlVideo(contenido.getUrlVideo());
+        if(solicitud.getUrlVideo() !=null){
+            contenido.setUrlVideo(solicitud.getUrlVideo());
         }
         return contenidoRepository.save(contenido);
     }

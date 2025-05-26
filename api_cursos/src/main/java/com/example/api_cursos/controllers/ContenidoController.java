@@ -35,7 +35,7 @@ public class ContenidoController {
         return contenidoService.crearNuevo(body);
     }
 
-    @DeleteMapping("")
+    @DeleteMapping("/{id}")
     public String eliminarContenido(@PathVariable int id){
         contenidoService.eliminarCont(id);
         return "contenido eliminado";

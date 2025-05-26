@@ -30,7 +30,7 @@ public class CursoController {
         return cursoService.obtenerTodos();
     }
     
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Curso listarUno(@PathVariable int id){
         return cursoService.obtenerPorId(id);
 
@@ -42,7 +42,7 @@ public class CursoController {
 
     }
     
-    @DeleteMapping("")
+    @DeleteMapping("/{id}")
     public String eliminarCurso(@PathVariable int id){
         cursoService.eliminarCurso(id);
         return "Curso eliminado";
