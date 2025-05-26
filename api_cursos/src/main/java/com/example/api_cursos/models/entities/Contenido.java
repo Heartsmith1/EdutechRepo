@@ -2,6 +2,7 @@ package com.example.api_cursos.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,13 +20,13 @@ public class Contenido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private String titulo;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)  
     private String descripcion;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private String urlVideo;
 
     @ManyToOne
