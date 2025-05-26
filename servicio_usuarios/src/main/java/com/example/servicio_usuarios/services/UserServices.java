@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.servicio_usuarios.models.entities.User;
+import com.example.servicio_usuarios.models.entities.UserRol;
 import com.example.servicio_usuarios.models.request.UserCrear;
 import com.example.servicio_usuarios.models.request.UserUpdate;
+import com.example.servicio_usuarios.repositories.RolRepository;
 import com.example.servicio_usuarios.repositories.UserRepository;
 
 @Service
@@ -20,6 +22,9 @@ public class UserServices {
     
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private RolRepository rolRepo;
 
     public List<User> obtenerTodos(){
         return userRepo.findAll();
@@ -86,6 +91,18 @@ public class UserServices {
         }
         userRepo.delete(usuario);
     }
+
+    public void asignarRolAUsuario(String email, String nombreRol) {
+        User usuario = userRepo.findByEmail(email);
+        if (usuario == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado");
+        }
+        UserRol rol = rolRepo.findByNombre(nombreRol);
+        if (rol == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Rol no encontrado");
+        usuario.getRoles().add(rol);
+        userRepo.save(usuario);
+}
 
 
 }
