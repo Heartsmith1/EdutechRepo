@@ -100,9 +100,8 @@ public class UserServices {
         UserRol rol = rolRepo.findByNombre(nombreRol);
         if (rol == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Rol no encontrado");
+        }
         usuario.getRoles().add(rol);
         userRepo.save(usuario);
-}
-
-
+        }
 }

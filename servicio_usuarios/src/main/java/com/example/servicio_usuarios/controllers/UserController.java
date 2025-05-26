@@ -48,7 +48,7 @@ public class UserController {
         return "ok";
     }
 
-    @PostMapping("/user/{email}/roles")
+    @PostMapping("/{email}/roles")
     public ResponseEntity<?> asignarRol(@PathVariable String email, @RequestParam String rol){
         userServices.asignarRolAUsuario(email, rol);
         return ResponseEntity.ok("Rol asignado");
