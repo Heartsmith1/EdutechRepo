@@ -53,7 +53,7 @@ public class ContenidoService {
     }
 
     public Contenido modificarCont(ContenidoModificar solicitud){
-        Contenido contenido = obtenerPorId(solicitud.getId())
+        Contenido contenido = obtenerPorId(solicitud.getId());
         if(solicitud.getTitulo()!=null){
             contenido.setTitulo(contenido.getTitulo());
         }
