@@ -1,5 +1,7 @@
 package com.example.api_cursos.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,5 +30,6 @@ public class Contenido {
 
     @ManyToOne
     @JoinColumn(name= "curso_id", nullable = false)
+    @JsonBackReference
     private Curso curso;
 }

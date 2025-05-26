@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.example.api_cursos.models.entities.Contenido;
 import com.example.api_cursos.models.entities.Curso;
 import com.example.api_cursos.models.request.ContenidoCreate;
+import com.example.api_cursos.models.request.ContenidoModificar;
 import com.example.api_cursos.repositories.ContenidoRepository;
 import com.example.api_cursos.repositories.CursoRepository;
 
@@ -43,5 +44,25 @@ public class ContenidoService {
 
         nuevo.setCurso(cursoAsociado);
         return contenidoRepository.save(nuevo);
+    }
+
+    public void eliminarCont(int id){
+        Contenido contenido = obtenerPorId(id);
+        contenidoRepository.delete(contenido);
+
+    }
+
+    public Contenido modificarCont(ContenidoModificar solicitud){
+        Contenido contenido = obtenerPorId(solicitud.getId())
+        if(solicitud.getTitulo()!=null){
+            contenido.setTitulo(contenido.getTitulo());
+        }
+        if(solicitud.getDescripcion()!=null){
+            contenido.setDescripcion(contenido.getDescripcion());
+        }
+        if(solicitud.getUrlVideo()!=null){
+            contenido.setUrlVideo(contenido.getUrlVideo());
+        }
+        return contenidoRepository.save(contenido);
     }
 }
