@@ -9,6 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.api_cursos.models.entities.Curso;
 import com.example.api_cursos.models.request.CursoCreate;
+import com.example.api_cursos.models.request.CursoModificar;
 import com.example.api_cursos.repositories.CursoRepository;
 
 @Service
@@ -32,4 +33,19 @@ public class CursoService {
         nuevo.setNombre(solicitud.getNombre());
         return cursoRepository.save(nuevo);
     }
+
+    public void eliminarCurso(int id){
+        Curso curso = obtenerPorId(id);
+        cursoRepository.delete(curso);
+    }
+
+    public Curso modificarCurso(CursoModificar solicitud){
+        Curso nombre = obtenerPorId(solicitud.getId());
+        if(solicitud.getNombre()!=null){
+            nombre.setNombre(nombre.getNombre());
+        }
+        return cursoRepository.save(nombre);
+    }
+
+
 }
