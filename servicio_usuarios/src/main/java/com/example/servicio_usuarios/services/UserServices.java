@@ -92,8 +92,8 @@ public class UserServices {
         userRepo.delete(usuario);
     }
 
-    public void asignarRolAUsuario(String email, String nombreRol) {
-        User usuario = userRepo.findByEmail(email);
+    public void asignarRolAUsuario(int id, String nombreRol) {
+        User usuario = userRepo.findById(id).orElse(null);
         if (usuario == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado");
         }
