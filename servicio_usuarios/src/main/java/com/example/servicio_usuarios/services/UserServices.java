@@ -79,7 +79,7 @@ public class UserServices {
         return userRepo.save(usuario);
     }
 
-    private String generarHash(String password){
+    public String generarHash(String password){
         PasswordEncoder hasheador = new BCryptPasswordEncoder();
         return hasheador.encode(password);
     }
@@ -104,4 +104,11 @@ public class UserServices {
         usuario.getRoles().add(rol);
         userRepo.save(usuario);
         }
+    
+    public boolean comprobarPassword(String hash,String password){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.matches(password, hash);
+
+    }
+
 }
