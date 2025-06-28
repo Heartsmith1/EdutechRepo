@@ -31,6 +31,7 @@ public class CursoService {
     public Curso crearNuevo(CursoCreate solicitud){
         Curso nuevo = new Curso();
         nuevo.setNombre(solicitud.getNombre());
+        nuevo.setPrecio(solicitud.getPrecio());
         return cursoRepository.save(nuevo);
     }
 
@@ -40,11 +41,14 @@ public class CursoService {
     }
 
     public Curso modificarCurso(CursoModificar solicitud){
-        Curso nombre = obtenerPorId(solicitud.getId());
+        Curso curso = obtenerPorId(solicitud.getId());
         if(solicitud.getNombre()!=null){
-            nombre.setNombre(solicitud.getNombre());
+            curso.setNombre(solicitud.getNombre());
         }
-        return cursoRepository.save(nombre);
+        if(solicitud.getPrecio()>0){
+            curso.setPrecio(solicitud.getPrecio());
+        }
+        return cursoRepository.save(curso);
     }
 
 

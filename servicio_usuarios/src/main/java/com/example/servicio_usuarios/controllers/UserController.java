@@ -32,6 +32,14 @@ public class UserController {
     public List<User> traerTodos(){
         return userServices.obtenerTodos();
     }
+    
+
+     @GetMapping("/{id}")
+    public User listarUno(@PathVariable int id){
+        return userServices.obtenerPorId(id);
+
+    }
+
     @PostMapping("/")
     public User crear(@Valid@RequestBody UserCrear nuevo){
         return userServices.registrar(nuevo);

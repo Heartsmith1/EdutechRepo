@@ -7,4 +7,9 @@ public class CursoModificar {
     private int id;
 
     private String nombre;
+
+    public int getPrecio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPrecio'");
+    }
 }

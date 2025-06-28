@@ -34,7 +34,14 @@ public class UserServices {
     public List<User> obtenerActivos(){
        return userRepo.findByActive(true);
     }
-
+    
+    public User obtenerPorId(int id){
+        User usuario = userRepo.findById(id).orElse(null);
+        if (usuario == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuario no encontrado");
+        }
+        return usuario;
+    }
     public User obtenerPorEmail(String email){
         User usuario = userRepo.findByEmail(email);
         if(usuario == null){

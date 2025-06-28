@@ -13,6 +13,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 @Entity
@@ -29,4 +31,8 @@ public class Curso {
     @JsonManagedReference
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Contenido> contenidos = new ArrayList<>();
+
+    @Min(1)
+    @Max(99999)
+    private int precio;
 }
