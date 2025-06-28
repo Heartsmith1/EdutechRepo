@@ -27,7 +27,7 @@ public class CompraController {
     @PostMapping
     public ResponseEntity<?> realizarCompra(@RequestParam Long usuarioId, @RequestParam Long cursoId) {
         // Validar usuario (servicio externo)
-        String urlUsuario = "http://localhost:8080/usuarios/" + usuarioId;
+        String urlUsuario = "http://localhost:8080/user/" + usuarioId;
         try {
             ResponseEntity<String> userResponse = restTemplate.getForEntity(urlUsuario, String.class);
             if (userResponse.getStatusCode() != HttpStatus.OK) {
