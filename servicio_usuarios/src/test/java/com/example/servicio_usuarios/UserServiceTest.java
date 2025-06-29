@@ -19,7 +19,6 @@ public class UserServiceTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     @Test
     void probarHasheoDePasswords(){
 

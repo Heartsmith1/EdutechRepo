@@ -34,7 +34,7 @@ public class JwtService {
         return Jwts.builder()
             .setSubject(String.valueOf(user.getId()))
             .claim("email", user.getEmail())
-            .claim("role", "admin")
+            .claim("rol", "admin")
             .setIssuedAt(new Date())
             .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 día
             .signWith(key, SignatureAlgorithm.HS256)
