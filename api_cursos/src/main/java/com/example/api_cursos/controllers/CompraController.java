@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.api_cursos.models.entities.Compra;
+import com.example.api_cursos.models.entities.CompraRequest;
 import com.example.api_cursos.models.entities.CompraResponse;
 import com.example.api_cursos.models.entities.Curso;
 import com.example.api_cursos.models.entities.User;
@@ -29,7 +30,7 @@ public class CompraController {
     private WebClient webClient;
 
     @PostMapping("/comprar")
-    public CompraResponse comprar(@Valid @RequestBody Compra compraRequest) {
+    public CompraResponse comprar(@Valid @RequestBody CompraRequest compraRequest) {
         
         CompraResponse response = new CompraResponse();
 

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.example.api_cursos.models.dto.ContenidoCrearDTO;
 import com.example.api_cursos.models.entities.Contenido;
 import com.example.api_cursos.models.entities.Curso;
 import com.example.api_cursos.models.request.ContenidoCreate;
@@ -33,17 +34,17 @@ public class ContenidoService {
         return cont;
     }
 
-    public Contenido crearNuevo(ContenidoCreate solicitud){
-        Contenido nuevo = new Contenido();
+    public Contenido crearNuevo(ContenidoCrearDTO dto) {
+    Curso curso = cursoRepository.findById(dto.getCursoId())
+        .orElseThrow(() -> new RuntimeException("Curso no encontrado "));
 
-        nuevo.setDescripcion(solicitud.getDescripcion());
-        nuevo.setTitulo(solicitud.getTitulo());
-        nuevo.setUrlVideo(solicitud.getUrlVideo());
+    Contenido contenido = new Contenido();
+    contenido.setTitulo(dto.getTitulo());
+    contenido.setDescripcion(dto.getDescripcion());
+    contenido.setUrlVideo(dto.getUrlVideo());
+    contenido.setCurso(curso); // asignación correcta
 
-        Curso cursoAsociado = cursoRepository.findById(solicitud.getIdCurso()).orElse(null);
-
-        nuevo.setCurso(cursoAsociado);
-        return contenidoRepository.save(nuevo);
+    return contenidoRepository.save(contenido);
     }
 
     public void eliminarCont(int id){

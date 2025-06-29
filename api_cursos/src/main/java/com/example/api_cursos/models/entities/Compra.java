@@ -1,16 +1,29 @@
 package com.example.api_cursos.models.entities;
 
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+
+
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
+@Entity
 @Data
+@Table(name = "compra")
 public class Compra {
-    @Positive
-    private int idCurso;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+     private int idCurso;
+
+    private long idUsuario;
     
-    private int idUsuario;
-    @NotBlank
-    private String numeroTarjeta;
+    
+
 }
