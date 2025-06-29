@@ -25,8 +25,7 @@ public class ReporteService {
         header.createCell(0).setCellValue("ID");
         header.createCell(1).setCellValue("ID Usuario");
         header.createCell(2).setCellValue("ID Curso");
-        header.createCell(3).setCellValue("Fecha"); // opcional si tienes campo de fecha
-
+        header.createCell(3).setCellValue("Fecha"); 
         // Datos
         int rowNum = 1;
         for (Compra compra : compras) {

@@ -26,6 +26,8 @@ public class UserServices {
     @Autowired
     private RolRepository rolRepo;
 
+    @Autowired JwtService jwtService;
+
     public List<User> obtenerTodos(){
         return userRepo.findAll();
         
@@ -117,5 +119,18 @@ public class UserServices {
         return passwordEncoder.matches(password, hash);
 
     }
+     public String intentarLogin(String email, String password) {
+        User user = obtenerPorEmail(email);
+        if(user != null){
+            boolean passwordCorrecta = comprobarPassword(user.getPassword(),password);
 
+            if(passwordCorrecta){
+                return jwtService.generarJwt(user);
+            }else{
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Contraseña invalida");
+            }
+        }else{
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Correo no registrado");
+            }
+        }
 }

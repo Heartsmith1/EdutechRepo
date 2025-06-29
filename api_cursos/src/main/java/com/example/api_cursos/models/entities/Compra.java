@@ -20,9 +20,18 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-     private int idCurso;
+    private int idCurso;
 
-    private long idUsuario;
+    private int idUsuario;
 
+    public void setIdUsuario(long l) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setIdUsuario'");
+    }
+
+    public void setIdCurso(long l) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setIdCurso'");
+    }
 
 }
