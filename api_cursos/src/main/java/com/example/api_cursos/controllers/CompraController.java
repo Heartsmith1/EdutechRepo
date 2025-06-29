@@ -52,14 +52,14 @@ public class CompraController {
 
             // Crear entidad Compra
             Compra compra = new Compra();
-            compra.setIdCurso(compraRequest.getIdCurso());
-            compra.setIdUsuario(compraRequest.getIdUsuario());
+            compra.setNombreCurso(compraRequest.getNombreCurso());
+            compra.setEmailUsuario(compraRequest.getEmailUsuario());
             // Aquí puedes agregar más campos si tienes
 
             // Guardar en BD
             Compra compraGuardada = compraService.guardarCompra(compra);
 
-            response.setIdBoleta("Compra exitosa curso id: " + cur.getId()+" Correo usuario: "+usuario.getEmail());
+            response.setIdBoleta("Compra exitosa curso: " + cur.getNombre() + " Correo usuario: " + usuario.getEmail());
             response.setExito(true);
         } catch (Exception e) {
             response.setExito(false);

@@ -7,6 +7,10 @@ import lombok.Data;
 public class CompraRequest {
     private int idCurso;
 
+    private String nombreCurso;
+
+    private String emailUsuario;
+
     private long idUsuario;
     
 

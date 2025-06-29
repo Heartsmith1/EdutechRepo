@@ -18,7 +18,11 @@ import lombok.Data;
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    
+
+    private String nombreCurso;
+
+    private String emailUsuario;
 
     private long idCurso;
 
