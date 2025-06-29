@@ -23,7 +23,6 @@ public class Compra {
      private int idCurso;
 
     private long idUsuario;
-    
-    
+
 
 }

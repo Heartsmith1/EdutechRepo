@@ -16,7 +16,7 @@ import com.example.api_cursos.models.entities.CompraRequest;
 import com.example.api_cursos.models.entities.CompraResponse;
 import com.example.api_cursos.models.entities.Curso;
 import com.example.api_cursos.models.entities.User;
-
+import com.example.api_cursos.services.CompraService;
 import com.example.api_cursos.services.CursoService;
 
 import jakarta.validation.Valid;
@@ -28,6 +28,9 @@ public class CompraController {
 
     @Autowired
     private WebClient webClient;
+    
+    @Autowired
+    private CompraService compraService;
 
     @PostMapping("/comprar")
     public CompraResponse comprar(@Valid @RequestBody CompraRequest compraRequest) {
@@ -46,6 +49,15 @@ public class CompraController {
                 .block();
 
             if(usuario == null){throw new Exception("Usuario no encontrado");}
+
+            // Crear entidad Compra
+            Compra compra = new Compra();
+            compra.setIdCurso(compraRequest.getIdCurso());
+            compra.setIdUsuario(compraRequest.getIdUsuario());
+            // Aquí puedes agregar más campos si tienes
+
+            // Guardar en BD
+            Compra compraGuardada = compraService.guardarCompra(compra);
 
             response.setIdBoleta("Compra exitosa curso id: " + cur.getId()+" Correo usuario: "+usuario.getEmail());
             response.setExito(true);
