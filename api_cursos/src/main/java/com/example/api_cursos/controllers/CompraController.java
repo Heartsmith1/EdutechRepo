@@ -54,7 +54,7 @@ public class CompraController {
             Compra compra = new Compra();
             compra.setNombreCurso(compraRequest.getNombreCurso());
             compra.setEmailUsuario(compraRequest.getEmailUsuario());
-            // Aquí puedes agregar más campos si tienes
+            
 
             // Guardar en BD
             Compra compraGuardada = compraService.guardarCompra(compra);

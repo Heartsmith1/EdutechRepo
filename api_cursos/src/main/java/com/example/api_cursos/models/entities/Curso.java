@@ -33,6 +33,6 @@ public class Curso {
     private List<Contenido> contenidos = new ArrayList<>();
 
     @Min(1)
-    @Max(99999)
+    @Max(999999999)
     private int precio;
 }
