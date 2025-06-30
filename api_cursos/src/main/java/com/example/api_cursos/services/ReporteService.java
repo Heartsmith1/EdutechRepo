@@ -36,10 +36,10 @@ public class ReporteService {
             row.createCell(2).setCellValue(compra.getEmailUsuario());
             row.createCell(3).setCellValue(compra.getFecha() != null ? compra.getFecha().toString() : "sin fecha"); 
             row.createCell(4).setCellValue(compra.getPrecio() != null ? compra.getPrecio() : 0.0);
-            // row.createCell(3).setCellValue(compra.getFecha().toString()); // si aplica
+            
         }
 
-        // Convertir a byte[]
+        
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         workbook.write(out);
         return out.toByteArray();

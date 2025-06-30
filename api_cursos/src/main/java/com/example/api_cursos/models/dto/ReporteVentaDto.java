@@ -7,10 +7,6 @@ import lombok.Data;
 @Data
 public class ReporteVentaDto {
 
- 
-    public ReporteVentaDto(long idUsuario2, int idCurso) {
-        
-    }
     private Long idCompra;
     private long idUsuario;
     private String nombreCurso;

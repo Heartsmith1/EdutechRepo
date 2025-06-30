@@ -41,7 +41,7 @@ public class ContenidoService {
     contenido.setTitulo(dto.getTitulo());
     contenido.setDescripcion(dto.getDescripcion());
     contenido.setUrlVideo(dto.getUrlVideo());
-    contenido.setCurso(curso); // asignación correcta
+    contenido.setCurso(curso);
 
     return contenidoRepository.save(contenido);
     }
