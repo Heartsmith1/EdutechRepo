@@ -22,9 +22,9 @@ public class ReporteService {
 
         // Encabezados
         Row header = sheet.createRow(0);
-        header.createCell(0).setCellValue("ID");
-        header.createCell(1).setCellValue("ID Usuario");
-        header.createCell(2).setCellValue("ID Curso");
+        header.createCell(0).setCellValue("ID Reporte");
+        header.createCell(1).setCellValue("Nombre Curso");
+        header.createCell(2).setCellValue("Email Usuario");
         header.createCell(3).setCellValue("Fecha"); 
         // Datos
         int rowNum = 1;
@@ -33,6 +33,7 @@ public class ReporteService {
             row.createCell(0).setCellValue(compra.getId());
             row.createCell(1).setCellValue(compra.getNombreCurso());
             row.createCell(2).setCellValue(compra.getEmailUsuario());
+            row.createCell(3).setCellValue(compra.getFecha() != null ? compra.getFecha().toString() : ""); // si aplica
             // row.createCell(3).setCellValue(compra.getFecha().toString()); // si aplica
         }
 

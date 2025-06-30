@@ -1,6 +1,5 @@
 package com.example.api_cursos.controllers;
 
-import com.example.api_cursos.models.dto.ReporteVentaDto;
 import com.example.api_cursos.models.entities.Compra;
 import com.example.api_cursos.services.ReporteService;
 import org.springframework.beans.factory.annotation.Autowired;

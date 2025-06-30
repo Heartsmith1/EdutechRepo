@@ -1,7 +1,6 @@
 package com.example.api_cursos.services;
 
-import java.util.List;
-
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +13,7 @@ public class CompraService {
     private CompraRepository compraRepository;
 
     public Compra guardarCompra(Compra compra) {
+        compra.setFecha(new Date());
         return compraRepository.save(compra);
     }
 

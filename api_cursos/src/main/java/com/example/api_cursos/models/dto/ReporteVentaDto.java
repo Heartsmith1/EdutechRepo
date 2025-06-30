@@ -9,7 +9,7 @@ public class ReporteVentaDto {
 
  
     public ReporteVentaDto(long idUsuario2, int idCurso) {
-        //TODO Auto-generated constructor stub
+        
     }
     private Long idCompra;
     private long idUsuario;

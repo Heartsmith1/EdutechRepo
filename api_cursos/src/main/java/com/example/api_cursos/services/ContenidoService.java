@@ -10,7 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.example.api_cursos.models.dto.ContenidoCrearDTO;
 import com.example.api_cursos.models.entities.Contenido;
 import com.example.api_cursos.models.entities.Curso;
-import com.example.api_cursos.models.request.ContenidoCreate;
 import com.example.api_cursos.models.request.ContenidoModificar;
 import com.example.api_cursos.repositories.ContenidoRepository;
 import com.example.api_cursos.repositories.CursoRepository;
