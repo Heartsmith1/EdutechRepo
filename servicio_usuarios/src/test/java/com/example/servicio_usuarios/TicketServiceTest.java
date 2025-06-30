@@ -31,13 +31,14 @@ public class TicketServiceTest {
         String descripcion = "Descripción prueba";
 
         Ticket ticketMock = new Ticket(usuarioId, asunto, descripcion, true);
+        ticketMock.setId(1L); 
 
         when(ticketRepository.save(any(Ticket.class))).thenReturn(ticketMock);
 
         Ticket resultado = ticketService.crearTicket(usuarioId, asunto, descripcion);
 
         assertNotNull(resultado);
-        assertEquals(usuarioId, resultado.getUsuarioId());
+        assertEquals(1L, usuarioId, resultado.getUsuarioId());
         assertEquals(asunto, resultado.getAsunto());
         assertEquals(descripcion, resultado.getDescripcion());
         assertTrue(resultado.isActivo());
