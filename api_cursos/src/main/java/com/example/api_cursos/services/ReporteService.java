@@ -22,7 +22,7 @@ public class ReporteService {
 
         // Encabezados
         Row header = sheet.createRow(0);
-        header.createCell(0).setCellValue("ID Reporte");
+        header.createCell(0).setCellValue("Numero de Compra");
         header.createCell(1).setCellValue("Nombre Curso");
         header.createCell(2).setCellValue("Email Usuario");
         header.createCell(3).setCellValue("Fecha"); 
