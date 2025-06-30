@@ -31,8 +31,8 @@ public class ReporteService {
         for (Compra compra : compras) {
             Row row = sheet.createRow(rowNum++);
             row.createCell(0).setCellValue(compra.getId());
-            row.createCell(1).setCellValue(compra.getIdUsuario());
-            row.createCell(2).setCellValue(compra.getIdCurso());
+            row.createCell(1).setCellValue(compra.getNombreCurso());
+            row.createCell(2).setCellValue(compra.getEmailUsuario());
             // row.createCell(3).setCellValue(compra.getFecha().toString()); // si aplica
         }
 
