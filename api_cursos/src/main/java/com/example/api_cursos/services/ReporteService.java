@@ -26,6 +26,7 @@ public class ReporteService {
         header.createCell(1).setCellValue("Nombre Curso");
         header.createCell(2).setCellValue("Email Usuario");
         header.createCell(3).setCellValue("Fecha"); 
+        header.createCell(4).setCellValue("Precio");
         // Datos
         int rowNum = 1;
         for (Compra compra : compras) {
@@ -33,7 +34,8 @@ public class ReporteService {
             row.createCell(0).setCellValue(compra.getId());
             row.createCell(1).setCellValue(compra.getNombreCurso());
             row.createCell(2).setCellValue(compra.getEmailUsuario());
-            row.createCell(3).setCellValue(compra.getFecha() != null ? compra.getFecha().toString() : ""); // si aplica
+            row.createCell(3).setCellValue(compra.getFecha() != null ? compra.getFecha().toString() : "sin fecha"); 
+            row.createCell(4).setCellValue(compra.getPrecio() != null ? compra.getPrecio() : 0.0);
             // row.createCell(3).setCellValue(compra.getFecha().toString()); // si aplica
         }
 
