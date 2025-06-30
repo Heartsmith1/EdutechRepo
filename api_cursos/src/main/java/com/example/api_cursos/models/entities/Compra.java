@@ -28,6 +28,8 @@ public class Compra {
 
     private String emailUsuario;
 
+    private Double precio;
+
     private long idCurso;
 
     private long idUsuario;

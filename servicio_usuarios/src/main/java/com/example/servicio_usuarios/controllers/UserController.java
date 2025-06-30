@@ -61,4 +61,6 @@ public class UserController {
         userServices.asignarRolAUsuario(id, rol);
         return ResponseEntity.ok("Rol asignado");
     }
+
+    
 }

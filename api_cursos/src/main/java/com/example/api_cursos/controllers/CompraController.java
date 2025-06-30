@@ -52,8 +52,9 @@ public class CompraController {
 
             // Crear entidad Compra
             Compra compra = new Compra();
-            compra.setNombreCurso(compraRequest.getNombreCurso());
-            compra.setEmailUsuario(compraRequest.getEmailUsuario());
+            compra.setNombreCurso(cur.getNombre());
+            compra.setEmailUsuario(usuario.getEmail());
+            compra.setPrecio(cur.getPrecio());
             
 
             // Guardar en BD

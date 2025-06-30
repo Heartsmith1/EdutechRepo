@@ -34,5 +34,5 @@ public class Curso {
 
     @Min(1)
     @Max(999999999)
-    private int precio;
+    private double precio;
 }
