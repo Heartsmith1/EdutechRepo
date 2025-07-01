@@ -29,11 +29,4 @@ public class Ticket {
         this.activo = activo;
     }
     
-
-    public Ticket(Long usuarioId, String asunto, String descripcion, boolean activo) {
-    this.usuarioId = usuarioId;
-    this.asunto = asunto;
-    this.descripcion = descripcion;
-    this.activo = activo;
-}
 }
