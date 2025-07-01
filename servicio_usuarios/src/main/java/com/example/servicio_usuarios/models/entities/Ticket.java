@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@AllArgsConstructor
 @Entity
 @Data
 @Table(name = "tickets")
@@ -20,6 +22,12 @@ public class Ticket {
     private String descripcion;
     private boolean activo;
 
-    public Ticket() {}
+    public Ticket(Long usuarioId, String asunto, String descripcion, boolean activo) {
+        this.usuarioId = usuarioId;
+        this.asunto = asunto;
+        this.descripcion = descripcion;
+        this.activo = activo;
+    }
+    
 
 }
