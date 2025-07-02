@@ -19,6 +19,7 @@ import com.example.api_cursos.models.entities.User;
 import com.example.api_cursos.services.CompraService;
 import com.example.api_cursos.services.CursoService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 @RestController
 @RequestMapping("compra")
@@ -32,6 +33,7 @@ public class CompraController {
     @Autowired
     private CompraService compraService;
 
+    @Operation(summary = "Realizar una compra de curso", description = "Permite a un usuario comprar un curso especificado por su ID.")
     @PostMapping("/comprar")
     public CompraResponse comprar(@Valid @RequestBody CompraRequest compraRequest) {
         

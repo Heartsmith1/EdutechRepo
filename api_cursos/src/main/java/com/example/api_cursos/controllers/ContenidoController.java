@@ -19,18 +19,20 @@ import com.example.api_cursos.models.entities.Contenido;
 import com.example.api_cursos.models.request.ContenidoModificar;
 import com.example.api_cursos.services.ContenidoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/contenido")
 public class ContenidoController {
     @Autowired
     private ContenidoService contenidoService;
 
-
+    @Operation(summary = "Listar todos los contenidos", description = "Devuelve una lista de todos los contenidos disponibles.")
     @GetMapping("")
     public List<Contenido> listarTodos(){
         return contenidoService.obtenerTodos();
     }
-
+    @Operation(summary = "Obtener un contenido por ID", description = "Devuelve los detalles de un contenido específico por su ID.")
     @PostMapping("")
     public ResponseEntity<?> crearNuevo(@RequestBody ContenidoCrearDTO dto) {
         try {
@@ -40,13 +42,13 @@ public class ContenidoController {
             return ResponseEntity.badRequest().body("Error al crear contenido: " + e.getMessage());
     }
 }
-
+    @Operation(summary = "Eliminar un contenido por ID", description = "Elimina un contenido existente por su ID.")
     @DeleteMapping("/{id}")
     public String eliminarContenido(@PathVariable int id){
         contenidoService.eliminarCont(id);
         return "contenido eliminado";
     }
-
+    @Operation(summary = "Modificar un contenido", description = "Actualiza los datos de un contenido existente.")
     @PutMapping("")
     public Contenido modificar(@RequestBody ContenidoModificar body){
         return contenidoService.modificarCont(body);

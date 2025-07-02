@@ -23,6 +23,8 @@ import com.example.servicio_usuarios.models.request.UserCrear;
 import com.example.servicio_usuarios.models.request.UserUpdate;
 import com.example.servicio_usuarios.services.UserServices;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import jakarta.validation.Valid;
@@ -38,6 +40,7 @@ public class UserControllerV2 {
     private UserModelAssembler assembler;
     
 
+    @Operation(summary = "Obtener todos los usuarios", description = "Devuelve una lista de todos los usuarios registrados.")
     @GetMapping("/")
     public CollectionModel<EntityModel<User>> obtenerTodos() {
         List<EntityModel<User>> usuarios = userService.obtenerTodos().stream()
@@ -47,25 +50,26 @@ public class UserControllerV2 {
         return CollectionModel.of(usuarios,
             linkTo(methodOn(UserControllerV2.class).obtenerTodos()).withSelfRel());
     }
-
+    @Operation(summary = "Obtener un usuario por ID", description = "Devuelve los detalles de un usuario específico por su ID.")
     @GetMapping("/{id}")
     public EntityModel<User> obtenerUno(@PathVariable int id) {
         User user = userService.obtenerPorId(id);
         return assembler.toModel(user);
     }
-
+    @Operation(summary = "Registrar un nuevo usuario", description = "Crea un nuevo usuario con los datos proporcionados.")
     @PostMapping("/")
     public EntityModel<User> registrar(@Valid @RequestBody UserCrear body) {
         User user = userService.registrar(body);
         return assembler.toModel(user);
     }
-
+    @Operation(summary = "Actualizar un usuario", description = "Actualiza los datos de un usuario existente.")
     @PutMapping("/")
     public EntityModel<User> actualizar(@Valid @RequestBody UserUpdate body) {
         User user = userService.modificar(body);
         return assembler.toModel(user);
     }
 
+    @Operation(summary = "Eliminar un usuario", description = "Elimina un usuario existente por su ID.")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable int id) {
         userService.eliminar(id);

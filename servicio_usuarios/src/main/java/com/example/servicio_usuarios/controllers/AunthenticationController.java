@@ -14,6 +14,7 @@ import com.example.servicio_usuarios.models.responses.LoginResponse;
 import com.example.servicio_usuarios.services.JwtService;
 import com.example.servicio_usuarios.services.UserServices;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -29,6 +30,7 @@ public class AunthenticationController {
     @Autowired
     private JwtService jwtService;
     
+    @Operation(summary = "Login de usuario", description = "Permite a un usuario autenticarse y obtener un token JWT.")
     @PostMapping("token")
     public LoginResponse postMethodName(@RequestBody @Valid LoginRequest body) {
 
@@ -36,7 +38,7 @@ public class AunthenticationController {
 
         return new LoginResponse(token);
     }
-
+    @Operation(summary = "Obtener mis datos", description = "Devuelve los datos del usuario autenticado.")
     @GetMapping("yo")
     @SecurityRequirement(name = "bearerAuth")
     public User misDatos(@Parameter(hidden = true) @RequestHeader("Authorization") String authHeader) {
